@@ -1,0 +1,92 @@
+@media (max-width:420px) {
+        .avatar{
+            img{
+                min-width: 50px;
+                min-height: 60px;
+            }
+        }
+        .info{
+            h3{
+                font-size: 16px;
+            }
+            span{
+                font-size: 12px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+}
+
+.comment{
+    flex-wrap: nowrap;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background: #e5e5e5;
+    }
+    .avatar{
+        img{
+            min-width: 80px;
+            min-height: 80px;
+            object-fit: cover;
+            object-position: top;
+            width: 80px;
+            height: 80px;
+        }
+    }
+    .info{
+        color: #808080;
+        span{
+            font-size: 14px;
+        }
+        p{
+            font-size: 15px;
+        }
+    }
+}
+
+.content{
+    textarea{
+        resize: none;
+        max-width: 100%;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        height: 120px;
+        background: #ffffff;
+        box-shadow:  1px 1px 19px 2px #d9d9d9, -20px -20px 60px #ffffff;        ;
+        font-size: 14px;
+        &::placeholder{
+            font-size: 14px;
+            color: #808080;
+            margin-left: 10px;
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.submit{
+    @media (max-width:420px) {
+        &{
+            margin-bottom: 30px;
+            button{
+                padding: 10px 20px;
+            }
+        }
+    }
+    button{
+        font-size: 14px;
+        padding: 12px 25px;
+        background: #1ab699;
+        box-shadow:  1px 1px 10px 0px #d9d9d9, -20px -20px 60px #ffffff;
+        color: #fff;
+    }
+}

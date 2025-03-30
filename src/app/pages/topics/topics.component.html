@@ -1,0 +1,104 @@
+<h3 class="py-3 fw-bold">Topics for This Course</h3>
+
+<div class="progress-container rounded-3">
+    <div class="progress-bar rounded-3" [ngStyle]="{ width: progress + '%' }"></div>
+    <span class="label label-top rounded-circle p-1" [ngStyle]="{ left: progress + '%' }">
+        You
+    </span>
+    <span class="label pointer" [ngStyle]="{ left: progress + '%' }">
+    <mat-icon>arrow_drop_down</mat-icon>
+    </span>
+    <span class="label label-bottom" [ngStyle]="{ left: progress + '%' }">
+        {{ progress }}%
+    </span>
+</div>
+
+<div class="accordion d-flex flex-column gap-0 row-gap-2">
+    
+    <div class="at-item px-0" *ngFor="let item of items; let i = index">
+
+        <div class="main px-3 py-3 mb-2">
+            <h3 class="py-0 my-1">Week 1-4</h3>
+            <p class="">Advanced story telling techniques for writers:
+                <br>
+                Personas, Characters & Plots
+            </p>
+        </div>
+
+        <div class="at-title py-1" *ngIf="!isLargeScreen" [class.active]="activeIndex === i" (click)="toggleAccordion(i)">
+            <h3 class="fw-bold ms-2 me-0 my-0 py-2 px-1">{{ item.title }}</h3>
+        </div>
+
+        <div class="at-tab" *ngIf="activeIndex === i || isLargeScreen">
+            <ul class="px-0 m-0 py-0 d-flex flex-column">
+                <li class="d-flex justify-content-between" (click)="showPdf()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Introduction</span>
+                    </div>
+                    <div class="icon">
+                        <mat-icon>lock_open</mat-icon>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between align-center" (click)="showPdf()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Course Overview</span>
+                    </div>
+                    <div class="icon">
+                        <mat-icon>lock_open</mat-icon>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between align-center" (click)="openExamDialog()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Course Overview</span>
+                    </div>
+                    <div class="date py-1">
+                        <span class="question py-2 px-1 rounded-1">5 QUESTIONS</span>
+                        <span class="time py-2 px-1 rounded-1">10 MINUTES</span>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between align-center" (click)="showPdf()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Course Exwecise / Reference Files </span>
+                    </div>
+                    <div class="icon">
+                        <mat-icon>lock_open</mat-icon>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between align-center" (click)="showPdf()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Code Editor Installation</span>
+                    </div>
+                    <div class="icon">
+                        <mat-icon>lock_open</mat-icon>
+                    </div>
+                </li>
+                <li class="d-flex justify-content-between align-center" (click)="showPdf()">
+                    <div class="info">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        <span>Embedding PHP in HTML</span>
+                    </div>
+                    <div class="icon">
+                        <mat-icon>lock_open</mat-icon>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<div *ngIf="showPDF" class="pdf-container">
+    <iframe [src]="pdfUrl"></iframe>
+    <a [href]="'/assets/Ahmed-Salah-Taha.pdf'" target="_blank" download>Download PDF</a>
+    <button (click)="showPDF = false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+    </button>
+</div>

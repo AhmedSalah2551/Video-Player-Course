@@ -1,0 +1,30 @@
+<div>
+    <h1>Course Material</h1>
+
+    <div class="content d-flex gap-0 row-gap-2">
+        <div class="materials d-flex flex-column col-lg-6 col-12 py-4 px-lg-4 px-md-4 px-3 gap-0 row-gap-2">
+            <div class="material d-flex w-100 py-3" *ngFor="let material of materials">
+                <div class="info d-flex">
+                    <i [ngClass]="material.icon"></i>
+                    <span class="d-block mx-2">{{material.info}}:</span>
+                </div>
+                <div class="value d-flex">
+                    <span>{{material.value}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="materials d-flex flex-column col-lg-6 col-12 py-4 px-lg-4 px-md-4 px-3 gap-0 row-gap-2" *ngIf="!smallSize">
+            <div class="material d-flex w-100 py-3" *ngFor="let material of materials">
+                <div class="info d-flex">
+                    <i [ngClass]="material.icon"></i>
+                    <span class="d-block mx-2">{{material.info}}:</span>
+                </div>
+                <div class="value d-flex">
+                    <span>{{material.value}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

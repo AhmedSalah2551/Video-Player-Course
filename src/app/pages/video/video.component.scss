@@ -1,0 +1,25 @@
+.main{
+    z-index: 9999;
+    background-color: #fff;
+    ul{
+        li{
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 10px;
+            margin-right: 15px;
+            cursor: pointer;
+            &:hover{
+                transition: 0.3s ease-in-out;
+                background-color: #1ab699;
+                svg{
+                    fill: #fff;
+                }
+            }
+            svg{
+                width: 20px;
+                height: 20px;
+                color: #808080;
+            }
+        }
+    }
+}

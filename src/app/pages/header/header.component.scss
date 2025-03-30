@@ -1,0 +1,26 @@
+.header{
+    background-color: #f5f9fa;
+    h1{
+        font-size: 26px;
+        @media (max-width:578px) {
+            &{
+                font-size: 22px;
+                font-weight: lighter;
+            }
+        }
+        @media (max-width:375px) {
+            &{
+                font-size: 16px;
+                font-weight: lighter;
+            }
+        }
+    }
+    a{
+        font-size: 14px;
+        color: #000;
+        &:not(:last-of-type):hover{
+            color: #1ab699;
+            transition: 0.1s ease-in-out;
+        }
+    }
+}

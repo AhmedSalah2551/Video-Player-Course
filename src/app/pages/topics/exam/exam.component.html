@@ -1,0 +1,72 @@
+
+<div class="exam d-flex flex-column gap-4 py-3 px-lg-3 px-0" *ngIf="!finish">
+
+    <div class="head d-flex  justify-content-center align-items-center">
+        <div class="time py-1 px-3 rounded-2 d-flex align-items-center justify-content-between">
+            <mat-icon>access_alarm</mat-icon>
+            {{ minutes < 1 ? '0' + minutes : minutes }}:
+            {{ seconds < 1 ? '0' + seconds : seconds }}
+        </div>
+        <div class="close">
+            <svg (click)="onClose()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="pagination px-lg-2 px-0 d-flex justify-content-center">
+        <ul class=" d-flex gap-0 column-gap-2 p-0 m-0">
+            <li class="fs-6" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" 
+                aria-current="true" aria-label="Slide 1" (click)="setActive(1)"
+                [ngClass]="{'active': activeButton == 1}">
+            1</li>
+            <li class="fs-6" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" 
+            aria-label="Slide 2" (click)="setActive(2)" [ngClass]="{'active': activeButton == 2}">
+            2</li>
+            <li class="fs-6" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" 
+            aria-label="Slide 3" (click)="setActive(3)" [ngClass]="{'active': activeButton == 3}">
+            3</li>
+            <li class="fs-6" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" 
+            aria-label="Slide 4" (click)="setActive(4)" [ngClass]="{'active': activeButton == 4}"
+            >4</li>
+            <li class="fs-6" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" 
+            aria-label="Slide 5" (click)="setActive(5)" [ngClass]="{'active': activeButton == 5}">
+            5</li>
+        </ul>
+    </div>
+
+    <div class="questions px-lg-2 px-0 py-2 mx-2 rounded-2">
+        <div id="carouselExampleIndicators" class="carousel slide" >
+            <div class="carousel-inner">
+                <div *ngFor="let question of questions; let i = index;" 
+                    class="carousel-item" 
+                    [class.active]="i === 0"> 
+                    <div class="question d-flex flex-column gap-0 row-gap-3">
+                        <div class="head" [dir]="'rtl'">
+                            <span>{{ i + 1 }}.</span>
+                            <h3 class="pt-2">{{ question.question }}</h3>
+                        </div>
+                        <div class="content d-flex flex-column gap-0 row-gap-3">
+                            <ul class="d-flex flex-column gap-0 row-gap-3 p-0 m-0">
+                                <li *ngFor="let option of question.options; let j = index" (click)="selectAnswer(i, j)">
+                                    <input type="radio" 
+                                        [name]="'question' + i" 
+                                        [id]="'option' + i + j"
+                                        [checked]="question.selectedAnswer === j"
+                                        (change)="selectAnswer(i, j)"> 
+                                    <label [for]="'option' + i + j">{{ option }}</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="compelet d-flex flex-column gap-4 py-3 px-3 w-100 h-100 justify-content-center" *ngIf="finish">
+    <h1>Great job! You are ready to move on to the next lecture</h1>
+    <span>{{message}}</span>
+    <button (click)="restartExam()">Retry</button>
+</div>

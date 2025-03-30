@@ -1,0 +1,30 @@
+<h1>Comments</h1>
+<div class="comments d-flex flex-column gap-3">
+    
+    <div class="comment d-flex py-3 px-2" *ngFor="let comment of comments">
+        <div class="avatar me-4">
+            <img class="rounded-circle" loading="lazy" [src]="comment.avatar" alt="avatar">
+        </div>
+        <div class="info d-flex flex-column gap-3">
+            <div class="date">
+                <h3 class="fw-bold m-0 px-0 py-1">Student Name {{comment.name}}</h3>
+                <span>{{comment.date | date  }}</span>
+            </div>
+            <div class="message">
+                <p>{{comment.comment}}</p>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="commentForm">
+        <div class="content px-2 py-2">
+            <textarea [(ngModel)]="inpValue"  formControlName="comment" class="w-100 py-2 px-3 rounded-2 border-0" placeholder="Write a Comment"></textarea>
+        </div>
+        <div class="submit px-2 py-2">
+            <button [disabled]="commentForm.invalid" (click)="add()" class="d-flex align-items-center border-0 rounded-2"> Submit Comment 
+                <i class="bi bi-arrow-right-short ms-1 fs-4"></i>
+            </button>
+        </div>
+    </form>
+    
+</div>

@@ -1,0 +1,79 @@
+<div
+  class="video-container"
+  [ngClass]="{ 'theater-mode': isTheaterMode }"
+  (mousemove)="showControlsTemporarily()">
+  
+  <video
+    #videoElement
+    (timeupdate)="updateTimeline()"
+    (ended)="nextVideo()"
+    (click)="togglePlay()">
+
+    <source [src]="videoUrls[currentVideoIndex]" type="video/mp4" />
+    متصفحك لا يدعم تشغيل الفيديو.
+  </video>
+
+  <div class="play-button" *ngIf="isPaused" (click)="togglePlay()">
+    <i class="bi bi-play-fill"></i>
+  </div>
+
+  <div
+    class="controls d-flex flex-column gap-0 column-gap-1"
+    *ngIf="showControls">
+    
+    <div class="timeline w-100" (mousedown)="startSeeking($event)">
+      <div class="progress" [style.width.%]="progress"></div>
+    </div>
+
+    <div class="d-flex justify-content-between py-lg-2 py-md-2 py-0 px-2">
+      <div class="left-controls">
+        <button (click)="togglePlay()">
+          <i
+            class="bi"
+            [ngClass]="{ 'bi-play-fill': isPaused, 'bi-pause-fill': !isPaused }"
+          ></i>
+        </button>
+
+        <div class="time-display">
+          <span>{{ formatTime(currentTime) }}</span> /
+          <span>{{ formatTime(duration) }}</span>
+        </div>
+
+        <button (click)="changeSpeed()" class="speed-button" *ngIf="!smallSize">
+          {{ playbackRate }}x
+        </button>
+
+        <div class="volume-control">
+          <button (click)="toggleMute()">
+            <i class="bi" [ngClass]="volumeIcon"></i>
+          </button>
+
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            [(ngModel)]="volume"
+            (input)="changeVolume()"
+            *ngIf="!smallSize"
+          />
+        </div>
+      </div>
+
+      <div class="right-controls">
+        <button (click)="toggleTheaterMode()" *ngIf="!smallSize">
+          <i class="bi bi-border-width"></i>
+        </button>
+        <button (click)="togglePictureInPicture()" *ngIf="!smallSize">
+          <i class="bi bi-box-arrow-in-up-right"></i>
+        </button>
+        <button (click)="nextVideo()">
+          <i class="bi bi-skip-forward"></i>
+        </button>
+        <button (click)="toggleFullscreen()">
+          <i class="bi bi-arrows-fullscreen"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

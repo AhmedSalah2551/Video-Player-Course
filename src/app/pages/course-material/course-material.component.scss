@@ -1,0 +1,29 @@
+h1{
+    font-weight:600;
+}
+.content{
+    border: none;
+    border-radius: 2px;
+    box-shadow:  1px 1px 20px 1px #d9d9d9, 1px 1px 20px 20px #ffffff;
+    .material{
+        position: relative;
+        justify-content: space-between;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background: #e5e5e5;
+        }
+        .info{
+            i{
+                font-size: 16px;
+            }
+        }
+        span{
+            font-size: 16px;
+        }
+    }
+}

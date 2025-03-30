@@ -1,0 +1,59 @@
+.close {
+    align-self: flex-end;
+    svg{
+        cursor: pointer;
+        width: 26px;
+        height: 26px;
+        &:hover{
+            fill: red;
+            transition: 0.3s ease-in-out;
+            -webkit-transition: 0.3s ease-in-out;
+            -moz-transition: 0.3s ease-in-out;
+            -ms-transition: 0.3s ease-in-out;
+            -o-transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+.motivated{
+    border-radius: 5px;
+    align-items: center;
+    background-color: #f5f9fa;
+    font-size: 18px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    .message{
+        line-height: 1.5;
+    }
+    .icon{
+        font-size: 50px;
+    }
+}
+
+.content{
+    background-color: #f5f9fa;
+    .message{
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        font-size: 18px;
+    }
+}
+
+::ng-deep .full-screen-progress{
+    width: 420px !important;
+    height: 93vh !important;
+    max-width: none !important;
+    @media (max-width: 768px) {
+        & {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+    }
+}

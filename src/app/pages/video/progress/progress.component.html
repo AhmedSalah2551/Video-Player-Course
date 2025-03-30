@@ -1,0 +1,27 @@
+<div class="question d-flex flex-column gap-3 py-2 px-3">
+
+    <div class="close">
+        <svg (click)="onClose()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+    </div>
+
+    <div class="head d-flex justify-content-center text-center flex-column">
+        <span>Course Name Shown Here</span>
+        <h4 class="fw-bold mt-2">Leaderboard</h4>
+    </div>
+
+    <div class="motivated d-flex py-2 px-3" dir="rtl">
+        <div class="icon">💪</div>
+        <div class="message mx-2">عظيم يا صديقي.. أداءك في الكورس ده أفضل من 60% من باقي الطلبة.. كمّل عايز أشوف اسمك في الليدر بورد هنا</div>
+    </div>
+
+    <div class="content d-flex flex-column py-4 px-3 gap-4">
+        <div class="messages" *ngFor="let message of messages">
+            <div class="message py-3 px-2" dir="rtl">
+                {{message}}
+            </div>
+        </div>
+    </div>
+    
+</div>

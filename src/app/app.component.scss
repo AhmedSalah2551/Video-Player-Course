@@ -1,0 +1,46 @@
+.main{
+    position: relative;
+    .topics{
+        position: absolute;
+        width: 31%;
+        right: 0px;
+        top: 0px;
+        z-index: 999;
+        @media (max-width:991px) {
+            &{
+                display: none;
+            }
+        }
+    }
+}
+.sub{
+    justify-content: start;
+    z-index: 0;
+    position: relative;
+    .topics{
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 31%;
+        z-index: 0;
+    }
+    @media (max-width:991px) {
+        .topics{
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+    }
+}
+.sticky{
+    .sub .topics{
+        display: none;
+    }
+    position: relative;
+    @media (max-width:991px) {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+}
